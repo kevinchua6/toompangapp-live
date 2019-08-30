@@ -1,0 +1,25 @@
+{
+  "name": "toompang-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "express": "^4.17.1",
+    "node": "^12.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guangshinhaha/toompang-webapp.git"
+  },
+  "author": "Shin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guangshinhaha/toompang-webapp/issues"
+  },
+  "homepage": "https://github.com/guangshinhaha/toompang-webapp#readme"
+}
