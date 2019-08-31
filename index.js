@@ -5,48 +5,68 @@ var googleMapsClient = require('@google/maps').createClient({
   key: 'AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs'
 });
 
-var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 16
-        });
-        infoWindow = new google.maps.InfoWindow;
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
 
   function initAutocomplete() {
+    var map, infoWindow;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 16
+            });
+            infoWindow = new google.maps.InfoWindow;
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        infoWindow.open(map);
+        map.setCenter(pos);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  }
+
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+                          'Error: The Geolocation service failed.' :
+                          'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+  }
+    //function initMap Initialize and add the map
+    // The location of Uluru
+    var Singapore = {
+      lat: 	1.43281,
+      lng: 103.77959
+    };
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+      document.getElementById('map'), {
+        zoom: 4,
+        center: Singapore
+      });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({
+      position: Singapore,
+      map: map
+    });
+
 // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
-  var searchBox = new google.amps.places.SearchBox(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  var searchBox = new google.maps.places.SearchBox(input);
+  //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 // Bias the SearchBox results towards current map's viewport.
   map.addListener('bounds_changed', function() {
