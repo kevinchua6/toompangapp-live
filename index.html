@@ -109,7 +109,7 @@
     <!--The div element for the map -->
     <div class="map col-lg-8" id="map"></div>
     <div class="col-lg-4">
-      <h1>search bar here</h1>
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     </div>
   </div>
   </section>
@@ -118,7 +118,7 @@
     * The key parameter will contain your own API key (which is not needed for this tutorial)
     * The callback parameter executes the initMap() function
     -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs&libraries=places&callback=initAutocomplete"></script>
   <script src="index.js"></script>
 </body>
 
