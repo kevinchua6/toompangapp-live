@@ -10,19 +10,19 @@ var googleMapsClient = require('@google/maps').createClient({
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  var uluru = {
-    lat: -25.344,
-    lng: 131.036
+  var Singapore = {
+    lat: 	1.43281,
+    lng: 103.77959
   };
   // The map, centered at Uluru
   var map = new google.maps.Map(
     document.getElementById('map'), {
       zoom: 4,
-      center: uluru
+      center: Singapore
     });
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({
-    position: uluru,
+    position: Singapore,
     map: map
   });
 }
