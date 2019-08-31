@@ -1,3 +1,13 @@
 #mapquery{
+height: 41rem;
+background-color:#f4eee1;
+}
 
+#map{
+  height: 100%;
+}
+
+.map-container{
+  height: inherit;
+  width: inherit;
 }
