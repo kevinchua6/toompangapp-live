@@ -100,11 +100,14 @@
       </ul>
     </div>
   </nav>
-  <div class="container-fluid">
+
+  <section id=mapquery>
+
+  <div class="container-fluid row">
 
     <!-- google maps -->
     <!--The div element for the map -->
-    <div id="map"></div>
+    <div class="map col-lg-8"id="map"></div>
     <script>
       // Initialize and add the map
       function initMap() {
@@ -126,7 +129,11 @@
         });
       }
     </script>
+    <div class="col-lg-4">
+      <h1>querybox</h1>
+    </div>
   </div>
+  </section>
   <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
     * The key parameter will contain your own API key (which is not needed for this tutorial)
