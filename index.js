@@ -7,7 +7,7 @@ function initAutocomplete() {
         lat: 1.306,
         lng: 103.829
       },
-      zoom: 16
+      zoom: 17
     });
     infoWindow = new google.maps.InfoWindow;
 

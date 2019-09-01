@@ -1,7 +1,7 @@
 #map {
   height: 100%;
+  width: 100%;
 }
-
 .pac-card {
   margin: 10rem 10rem 5rem 5rem;
   border-radius: 2px 0 0 2px;
@@ -41,4 +41,9 @@ background-color:#f4eee1;
 .map-container{
   height: inherit;
   width: 100%
+}
+
+.row{
+  margin: 0;
+  padding: 0;
 }
