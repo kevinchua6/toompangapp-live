@@ -1,16 +1,11 @@
 //jshint esversion:6
 
-
-var googleMapsClient = require('@google/maps').createClient({
-  key: 'AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs'
-});
-
 function initAutocomplete() {
   var map, infoWindow;
     map = new google.maps.Map(document.getElementById('map'), {
       center: {
-        lat: -34.397,
-        lng: 150.644
+        lat: 1.306,
+        lng: 103.829
       },
       zoom: 16
     });
