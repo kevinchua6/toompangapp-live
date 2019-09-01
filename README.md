@@ -41,6 +41,34 @@ Used for people to rent and list cars.
 # Commented out codes
 <br>
 
+###Index.js  
+Code to place icons and markers when search  
+```
+var icon = {
+ url: place.icon,
+ size: new google.maps.Size(71, 71),
+ origin: new google.maps.Point(0, 0),
+ anchor: new google.maps.Point(17, 34),
+ scaledSize: new google.maps.Size(25, 25)
+};
+
+// Create a marker for each place.
+markers.push(new google.maps.Marker({
+ map: map,
+ icon: icon,
+ title: place.name,
+ position: place.geometry.location
+}));
+```
+Code to clear old markers upon search  
+```
+// Clear out the old markers.
+ markers.forEach(function(marker) {
+   marker.setMap(null);
+ });
+ markers = [];
+ ```
+
 ### Code that doesn't work (start of index.js)
 ```
 var googleMapsClient = require('@google/maps').createClient({
