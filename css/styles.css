@@ -22,27 +22,15 @@
 #pac-input {
   background-color: #fff;
   font-family: Roboto;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 400px;
+  width: inherit;
+  margin: 1rem;
 }
 
 #pac-input: focus {
   border-color: #4d90fe;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
 }
 
 #mapquery{
@@ -52,5 +40,5 @@ background-color:#f4eee1;
 
 .map-container{
   height: inherit;
-  width: inherit;
+  width: 100%
 }
