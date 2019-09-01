@@ -26,11 +26,11 @@
   font-weight: 300;
   text-overflow: ellipsis;
   width: inherit;
-  margin: 1rem;
+  margin:0;
 }
 
 #pac-input: focus {
-  border-color: #4d90fe;
+  border-color: black;
 }
 
 #mapquery{
