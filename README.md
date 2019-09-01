@@ -41,7 +41,7 @@ Used for people to rent and list cars.
 # Commented out codes
 <br>
 
-###Index.js  
+### Index.js  
 Code to place icons and markers when search  
 ```
 var icon = {
