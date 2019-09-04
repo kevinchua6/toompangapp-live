@@ -27,6 +27,12 @@ background-color:#f4eee1;
   border-color: #4d90fe;
 }
 
+#login-form{
+  width: 100%;
+  height: 92vh;
+  color: blue;  
+}
+
 .pac-card {
   margin: 10rem 10rem 5rem 5rem;
   border-radius: 2px 0 0 2px;
