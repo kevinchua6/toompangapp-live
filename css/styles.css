@@ -29,8 +29,11 @@ background-color:#f4eee1;
 
 #login-form{
   width: 100%;
-  height: 92vh;
+  height: 100%;
+}
 
+#signup{
+  margin-top: 0.4rem;
 }
 
 .pac-card {
@@ -59,7 +62,7 @@ background-color:#f4eee1;
 }
 
 .login-form{
-  margin:10rem 20rem;
+  margin:7rem 20rem;
 }
 
 .signup-form{

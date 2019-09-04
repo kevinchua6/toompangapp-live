@@ -89,12 +89,37 @@
     <div class="col-lg-8 container-child" id="map"></div>
     <div class="col-lg-4 container-child">
       <input id="pac-input" class="controls" type="text" placeholder="Enter location here...">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   </section>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs&libraries=places&callback=initAutocomplete"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs&libraries=places&callback=initMap"></script>
+    <!-- Initialising Firebase Realtime Database  -->
+    <!-- // The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+    <script src="database.js"></script>
     <script src="index.js"></script>
+
 </body>
 
 </html>
