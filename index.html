@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 
 <head>
@@ -91,20 +91,14 @@
   <section id=mapquery>
 
   <div class="container-fluid row map-container">
-    <!-- google maps -->
-    <!--The div element for the map -->
-    <div class="map col-lg-8" id="map"></div>
-    <div class="col-lg-4">
+    <div class="col-lg-8 container-child" id="map"></div>
+    <div class="col-lg-4 container-child">
       <input id="pac-input" class="controls" type="text" placeholder="Enter location here...">
     </div>
   </div>
   </section>
-  <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs&libraries=places&callback=initAutocomplete"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTWlN0IC6Ck-xqfLvRG5TvTPnAHB8cWs&libraries=places&callback=initAutocomplete"></script>
   <script src="index.js"></script>
 </body>
 
