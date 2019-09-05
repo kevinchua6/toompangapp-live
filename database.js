@@ -19,17 +19,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-var signupButton = document.getElementById('signupButton');
-signupButton.addEventListener('click',handleSignUp());
-
-
 // Function for signup
-function handleSignUp() {
-
-  console.log("Hello World");
-  var email = document.getElementById('inputEmail').value;
-  var password = document.getElementById('inputPassword').value;
-  var confirmPassword = document.getElementById('confirmPassword').value;
+$("#signupButton").click(function(){
+  //Console.log does not appear for some reason. Have to verify.
+  console.log('Why do I not appear?'); //TEMP
+  var email = $('#inputEmail').val();
+  var password = $('#inputPassword').val();
+  var confirmPassword = $('#confirmPassword').val();
 
   console.log(email);
   console.log(password);
@@ -48,7 +44,7 @@ function handleSignUp() {
   }
 
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-
+    alert( "Handler for .click() called." ); //TEMP
     var errorCode = error.code;
     var errorMessage = error.message;
 
@@ -60,9 +56,9 @@ function handleSignUp() {
     console.log(error);
 
   });
-
+  alert( "Handler for .location() called." ); //TEMP
   window.location = "index.html"
-}
+});
 
 function validatePassword() {
   if (password.value != confirmPassword.value) {
