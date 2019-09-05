@@ -96,41 +96,33 @@
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Eg. AlexTan@gmail.com">
+        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Eg. AlexTan@gmail.com">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password (5 characters minimum)</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" minlength="5" required>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="5" required>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Confirm Password</label>
-        <input type="password" class="form-control" id="exampleConfirmPassword1" placeholder="Password" minlength="5" required>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Password" minlength="5" required>
       </div>
-      <button type="submit" class="btn btn-primary" id ="signup">Sign up</button>
+      <button type="submit" class="btn btn-primary" id ="signupButton">Sign up</button>
     </form>
   </section>
 
-  <script>
-  //Validation of password script
-  let password = $("#exampleInputPassword1")[0];
-  let confirm_password = $("#exampleConfirmPassword1")[0];
 
-  function validatePassword(){
-    if(password.value != confirm_password.value) {
-      confirm_password.setCustomValidity("Passwords Don't Match");
-    } else {
-      confirm_password.setCustomValidity('');
-    }
-  }
 
-  password.onchange = function(){validatePassword()};
-  confirm_password.onchange = function(){validatePassword()};
-  </script>
 
-  <!-- Initialising Firebase Realtime Database  -->
-  <!-- // The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
-  <script src="database.js"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script defer src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script defer src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
+
+    <script defer src="database.js"></script>
 
 </body>
 
