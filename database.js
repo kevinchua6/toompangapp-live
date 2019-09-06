@@ -38,8 +38,13 @@ $("#signupButton").click(function() {
     return;
   }
 
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then(function(){
+    window.location = "index.html";
+  })
+  .catch(function(error) {
     alert("Handler for .click() called."); //TEMP
+    console.log('bastard')
     var errorCode = error.code;
     var errorMessage = error.message;
 
@@ -49,9 +54,7 @@ $("#signupButton").click(function() {
       alert(errorMessage);
     }
     console.log(error);
-
   });
-  window.location = "index.html";
 });
 
 // Function for login
