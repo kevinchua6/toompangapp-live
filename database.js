@@ -20,13 +20,10 @@ firebase.initializeApp(firebaseConfig);
 
 
 // Function for signup
-$("#signupButton").click(function(){
+$("#signupButton").click(function() {
   let email = $('#inputEmail').val();
   let password = $('#inputPassword').val();
   let confirmPassword = $('#confirmPassword').val();
-
-  console.log(email);
-  console.log(password);
 
   if (email.length < 4) {
     alert('Please enter an email address.');
@@ -42,7 +39,7 @@ $("#signupButton").click(function(){
   }
 
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    alert( "Handler for .click() called." ); //TEMP
+    alert("Handler for .click() called."); //TEMP
     var errorCode = error.code;
     var errorMessage = error.message;
 
@@ -54,5 +51,30 @@ $("#signupButton").click(function(){
     console.log(error);
 
   });
-  window.location = "index.html"
+  window.location = "index.html";
+});
+
+// Function for login
+$('#loginButton').click(function() {
+  let email = $('#inputEmail').val();
+  let password = $('#inputPassword').val();
+
+  if (email.length < 4) {
+    alert('Please enter an email address.');
+    return;
+  }
+  if (password.length < 4) {
+    alert('Please enter a password.');
+    return;
+  }
+
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    alert(error.message);
+  });
+
+  window.location = "index.html";
 });

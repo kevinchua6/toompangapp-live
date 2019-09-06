@@ -86,24 +86,31 @@
   <section id=login-form>
     <form class="login-form">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+        <label>Email address</label>
+        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email Address">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <label>Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="button" class="btn btn-primary" id="loginButton">Login</button>
       <br>
       <br>
       <a href="signup.html">Don't have an account? Sign up now!</a>
+      <a href="signup.html">Forgot your password? Reset Here!</a>
     </form>
   </section>
 
-<!-- Initialising Firebase Realtime Database  -->
-<!-- // The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
-<script src="database.js"></script>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script defer src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script defer src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
+
+  <script defer src="database.js"></script>
 
 </body>
 
