@@ -21,11 +21,9 @@ firebase.initializeApp(firebaseConfig);
 
 // Function for signup
 $("#signupButton").click(function(){
-  //Console.log does not appear for some reason. Have to verify.
-  console.log('Why do I not appear?'); //TEMP
-  var email = $('#inputEmail').val();
-  var password = $('#inputPassword').val();
-  var confirmPassword = $('#confirmPassword').val();
+  let email = $('#inputEmail').val();
+  let password = $('#inputPassword').val();
+  let confirmPassword = $('#confirmPassword').val();
 
   console.log(email);
   console.log(password);
@@ -56,14 +54,5 @@ $("#signupButton").click(function(){
     console.log(error);
 
   });
-  alert( "Handler for .location() called." ); //TEMP
   window.location = "index.html"
 });
-
-function validatePassword() {
-  if (password.value != confirmPassword.value) {
-    confirmPassword.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirmPassword.setCustomValidity('');
-  }
-}
