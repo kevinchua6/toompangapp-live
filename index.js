@@ -32,6 +32,8 @@ function initMap(){
   }
 
   initAutocomplete();
+  let carLocations = getCarLocations()
+  initMarker(carLocations);
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -51,7 +53,7 @@ function initAutocomplete() {
   map.addListener('bounds_changed', () => {
     searchBox.setBounds(map.getBounds());
   });
-  var markers = [];
+
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', () => {
@@ -78,5 +80,25 @@ function initAutocomplete() {
       }
     });
     map.fitBounds(bounds);
+  });
+}
+
+function getCarLocations(){
+  //This function will return a dictionary of car coordinates in the form of {car1: {lat: 1.308, lng: 103.829}, car2: {lat: 13.308, lng: 32.829}} etc from firebase when ppl list their car.
+}
+
+function initMarker(carLocations){
+  //Adds a custom image marker to this location.
+
+  //Iterates through `carLocations` to get each car location.
+
+  var myLatLng = {lat: 1.308, lng: 103.829};
+  var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!',
+    icon: image
   });
 }
