@@ -19,3 +19,12 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    $('#loginButton').textContent = "Welcome!"
+  } else {
+    // No user is signed in.
+  }
+});
