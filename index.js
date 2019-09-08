@@ -93,7 +93,7 @@ function initMarker(carLocations){
   //Iterates through `carLocations` to get each car location.
 
   var myLatLng = {lat: 1.308, lng: 103.829};
-  var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+  var image = 'images/car-placemark.png';
 
   var marker = new google.maps.Marker({
     position: myLatLng,
