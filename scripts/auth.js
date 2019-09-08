@@ -13,18 +13,26 @@ var firebaseConfig = {
   authDomain: "toompang-web.firebaseapp.com",
   databaseURL: "https://toompang-web.firebaseio.com",
   projectId: "toompang-web",
-  storageBucket: "",
-  messagingSenderId: "1043268270194",
   appId: "1:1043268270194:web:79a982514c45923d"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    $('#loginButton').textContent = "Welcome!"
+   $('.auth-login').css('display','block');
+   $('.auth-logout').css('display','none');
   } else {
-    // No user is signed in.
+    $('.auth-login').css('display','none');
+    $('.auth-logout').css('display','block');
   }
+});
+
+$('#logoutButton').click(() => {
+  firebase.auth().signOut().then(function() {
+    location.reload;
+  }).catch(function(error) {
+    console.log('Unable to sign you out at the moment.');
+  });
+
 });

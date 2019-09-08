@@ -22,7 +22,6 @@ $("#signupButton").click(() => {
       window.location = "index.html";
     })
     .catch((error) => {
-      console.log('bastard')
       var errorCode = error.code;
       var errorMessage = error.message;
 
