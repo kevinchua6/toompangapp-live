@@ -20,8 +20,14 @@ $('#loginButton').click(() => {
     var errorCode = error.code;
     var errorMessage = error.message;
 
-    alert(error.message);
+    if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else if (errorCode === 'auth/user-not-found'){
+    alert('User not found.');
+  } else if (errorCode === 'auth/invalid-email'){
+    alert('Invalid email address');
+  } else {
+    alert(errorMessage);
+  }
   });
-
-
 });

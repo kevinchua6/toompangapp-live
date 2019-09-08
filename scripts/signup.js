@@ -17,8 +17,7 @@ $("#signupButton").click(() => {
       return;
     }
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
       window.location = "index.html";
     })
     .catch((error) => {

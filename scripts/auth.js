@@ -32,7 +32,8 @@ $('#logoutButton').click(() => {
   firebase.auth().signOut().then(function() {
     location.reload;
   }).catch(function(error) {
-    console.log('Unable to sign you out at the moment.');
+    alert('Unable to sign you out at the moment.');
+    console.log(error.message);
   });
 
 });
