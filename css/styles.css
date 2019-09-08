@@ -68,3 +68,11 @@ background-color:#f4eee1;
 .signup-form{
   margin:7rem 20rem;
 }
+
+.auth-login{
+  display: none;
+}
+
+.auth-logout{
+  display: none;
+}

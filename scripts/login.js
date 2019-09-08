@@ -12,7 +12,10 @@ $('#loginButton').click(() => {
     return;
   }
 
-  firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
+  firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+    window.location = "index.html";
+  })
+  .catch((error) => {
 
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -20,5 +23,5 @@ $('#loginButton').click(() => {
     alert(error.message);
   });
 
-  window.location = "index.html";
+
 });
