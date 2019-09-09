@@ -1,8 +1,10 @@
 // Function for signup
 $("#signupButton").click(() => {
-    let email = $('#inputEmail').val();
-    let password = $('#inputPassword').val();
-    let confirmPassword = $('#confirmPassword').val();
+    const givenName = $('given-name').val();
+    const lastName = $('last-name').val();
+    const email = $('#inputEmail').val();
+    const password = $('#inputPassword').val();
+    const confirmPassword = $('#confirmPassword').val();
 
     if (email.length < 4) {
       alert('Please enter an email address.');
@@ -18,7 +20,22 @@ $("#signupButton").click(() => {
     }
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-      window.location = "index.html";
+      //Add user to database
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          firebase.database().ref('users/').set({ //user.uid
+            dumb: {
+            given_name: givenName,
+            last_name: lastName,
+            }
+          })
+        } else {
+          console.log('no user is logged in..')
+        }
+      });
+
+
+      //window.location = "index.html";
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -31,4 +48,5 @@ $("#signupButton").click(() => {
       }
       console.log(error);
     });
+
   });
