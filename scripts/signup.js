@@ -1,7 +1,7 @@
 // Function for signup
 $("#signupButton").click(() => {
-    const givenName = $('given-name').val();
-    const lastName = $('last-name').val();
+    const givenName = $('#given-name').val();
+    const lastName = $('#last-name').val();
     const email = $('#inputEmail').val();
     const password = $('#inputPassword').val();
     const confirmPassword = $('#confirmPassword').val();
@@ -21,18 +21,16 @@ $("#signupButton").click(() => {
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
       //Add user to database
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          firebase.database().ref('users/').set({ //user.uid
-            dumb: {
-            given_name: givenName,
-            last_name: lastName,
-            }
-          })
-        } else {
-          console.log('no user is logged in..')
-        }
-      });
+      var user = firebase.auth().currentUser;
+      const userID = user.uid;
+      if (user) {
+        firebase.database().ref('users/' + userID).set({
+          given_name: givenName,
+          last_name: lastName,
+        })
+      } else {
+        console.log('no user is logged in..')
+      }
 
 
       //window.location = "index.html";
