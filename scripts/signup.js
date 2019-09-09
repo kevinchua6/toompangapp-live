@@ -28,12 +28,12 @@ $("#signupButton").click(() => {
           given_name: givenName,
           last_name: lastName,
         })
+        .then( () => {
+          window.location = "index.html";
+        })
       } else {
         console.log('no user is logged in..')
       }
-
-
-      //window.location = "index.html";
     })
     .catch((error) => {
       var errorCode = error.code;
