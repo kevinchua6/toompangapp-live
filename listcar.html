@@ -71,7 +71,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item auth-logout">
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="index.html"></a>
         </li>
         <li class="nav-item auth-logout">
           <a  class="nav-link" href="login.html">Login</a>
@@ -80,29 +80,39 @@
     </div>
   </nav>
 
-  <section id=signup-form>
-    <form class="signup-form">
+  <section id=listcar-form>
+    <form class="signup-form" autocomplete="on">
+      <!-- Use initAutocomplete -->
       <div class="form-group">
-        <label>Given Name</label>
-        <input type="given-name" class="form-control" id="given-name" placeholder="Eg. Alex" required>
+        <label>Where did you park your car?</label> <!-- Use initAutocomplete -->
+        <input type="text" class="form-control" id="car-location" placeholder="Eg. Pioneer JC Parking Lot" required>
       </div>
+      <!-- Car Model -->
       <div class="form-group">
-        <label>Last Name</label>
-        <input type="last-name" class="form-control" id="last-name" placeholder="Eg. Tan" required>
+        <label>What model is your car?</label>
+        <input type="text" class="form-control" id="model" placeholder="Eg. Ferrari 308 GTB" required>
       </div>
+      <!-- Insurance Type -->
       <div class="form-group">
-        <label>Email address</label>
-        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Eg. AlexTan@gmail.com" required>
+        <label>What type of insurance does your car have?</label>
+        <!-- Can be 2 options -->
+        <input type="text" class="form-control" id="insurance" placeholder="Private/Commercial" required>
       </div>
+      <!-- Mobile Number -->
       <div class="form-group">
-        <label>Password (5 characters minimum)</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="5" required>
+        <label>What is your mobile number?</label>
+        <input type="text" class="form-control" id="mobile-number" placeholder="91234567" required>
       </div>
+      <!-- Note that date of birth, first name last name on drivers license, date of issuance, issuing country is excluded for brevity during testing-->
       <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Password" minlength="5" required>
+        <label>Driver's license number</label>
+        <input type="text" class="form-control" id="license-number" placeholder="2686584552" required>
       </div>
-      <button type="button" class="btn btn-primary" id ="signupButton">Sign up</button>
+      <button type="button" class="btn btn-primary" id ="listcarButton">Submit</button>
+
+
+
+
     </form>
   </section>
 
@@ -116,7 +126,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-database.js"></script>
 
     <script defer src="scripts/auth.js"></script>
-    <script defer src="scripts/signup.js"></script>
+    <script defer src="scripts/listcar.js"></script>
 
 </body>
 

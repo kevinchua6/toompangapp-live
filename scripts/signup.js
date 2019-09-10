@@ -32,7 +32,7 @@ $("#signupButton").click(() => {
           window.location = "index.html";
         })
       } else {
-        console.log('no user is logged in..')
+        console.log('No user is logged in.')
       }
     })
     .catch((error) => {

@@ -84,10 +84,11 @@ function initAutocomplete() {
 }
 
 function getCarLocations(){
+  return null
   //This function will return a dictionary of car coordinates in the form of {car1: {lat: 1.308, lng: 103.829}, car2: {lat: 13.308, lng: 32.829}} etc from firebase when ppl list their car.
 }
 
-function initMarker(carLocations){
+function initMarker(){
   //Adds a custom image marker to this location.
 
   //Iterates through `carLocations` to get each car location.

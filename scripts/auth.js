@@ -18,9 +18,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-//Reference to database
-var database = firebase.database();
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
    $('.auth-login').css('display','block');
