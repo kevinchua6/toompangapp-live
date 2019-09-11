@@ -1,3 +1,5 @@
+google.maps.event.addDomListener(window, 'load', autocomplete);
+
 $("#listcarButton").click(() => {
       const carLocation = $('#car-location').val();
       const model = $('#model').val();
@@ -22,3 +24,12 @@ $("#listcarButton").click(() => {
         console.log('No user is logged in.');
       }
 });
+
+function autocomplete() {
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('car-location');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', () => {
+    var place = autocomplete.getPlace();
+  });
+}
