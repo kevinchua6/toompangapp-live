@@ -86,6 +86,7 @@ function initMarker(){
 
   //Iterates through `carLocations` to get each car location.
 
+  //TODO: Make car image background transparent
   var myLatLng = {lat: 1.308, lng: 103.829};
   var image = 'images/car-placemark.png';
 
