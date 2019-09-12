@@ -1,3 +1,12 @@
+var carLoc;
+
+$("#listcarButton").click(() => {
+  //For when user clicks sign up before inputting the car Location
+  if (!carLoc) {
+    alert("Please enter car coordinates");
+  }
+})
+
 function initMap() {
   google.maps.event.addDomListener(window, 'load', autocomplete(carLoc => {
 
@@ -51,10 +60,10 @@ function autocomplete(callback) {
       //Some places do not return any geometry for some reason. This does not work: autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
       alert("Returned place contains no geometry");
     } else {
-      const carLat = place.geometry['location'].lat();
-      const carLng = place.geometry['location'].lng();
+      var carLat = place.geometry['location'].lat();
+      var carLng = place.geometry['location'].lng();
 
-      const carLoc = [carLat, carLng];
+      carLoc = [carLat, carLng];
       callback(carLoc);
     }
   });
