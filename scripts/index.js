@@ -1,7 +1,7 @@
 //jshint esversion:6
 var map, infoWindow;
 
-function initMap(){
+function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 1.306,
@@ -33,8 +33,55 @@ function initMap(){
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  let carLocations = getCarLocations()
-  initMarker(carLocations);
+  getCarLocations(carLocations => {
+    initMarker(carLocations);
+  })
+}
+
+function getCarLocations(callback) {
+  //This function will return a array of car coordinates in the form of [[userID, [1.308, lng: 103.829], [userID, lat: 13.308, lng: 32.829]] etc from firebase when ppl list their car.
+
+  firebase.database().ref("users").on('value', function(snapshot) {
+    //This loop iterates over children of users
+    console.log(snapshot) //TEMP
+    let userIDcarLocArray = [];
+    snapshot.forEach(function(retrievedUser) {
+      const userID = retrievedUser.key;
+      const carLoc = retrievedUser.val().car_location_coord;
+
+      const userIDcarLoc = [userID, carLoc];
+      userIDcarLocArray.push(userIDcarLoc);
+    });
+    console.log(userIDcarLocArray); //TEMP
+    callback(userIDcarLocArray);
+  })
+}
+
+
+function initMarker(carLocations) {
+  //Iterates through `carLocations` to get each car location.
+  for (i of carLocations) {
+    //Gets [[userID, [1.308, lng: 103.829], [userID, lat: 13.308, lng: 32.829]]
+    const userID = i[0]
+    if (i[1]) {
+
+      const carLatLng = {
+        lat: i[1][0],
+        lng: i[1][1]
+      };
+
+      const image = 'images/car-placemark.png';
+
+      var marker = new google.maps.Marker({
+        position: carLatLng,
+        map: map,
+        title: userID, //Note: make sure to change this to first name + last name
+        icon: image
+      });
+    } else {
+      console.log('No coord info found for this user: ' + i[0])
+    }
+  }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -50,7 +97,9 @@ function autocomplete() {
   var input = document.getElementById('pac-input');
   var autocomplete = new google.maps.places.Autocomplete(input);
   // Set to only Singapore
-  autocomplete.setComponentRestrictions({'country': ['sg',]});
+  autocomplete.setComponentRestrictions({
+    'country': ['sg', ]
+  });
 
   // Specify only the data fields that are needed.
   autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
@@ -73,27 +122,5 @@ function autocomplete() {
     }
 
     //map.fitBounds(bounds);
-  });
-}
-
-function getCarLocations(){
-  return null
-  //This function will return a dictionary of car coordinates in the form of {car1: {lat: 1.308, lng: 103.829}, car2: {lat: 13.308, lng: 32.829}} etc from firebase when ppl list their car.
-}
-
-function initMarker(){
-  //Adds a custom image marker to this location.
-
-  //Iterates through `carLocations` to get each car location.
-
-  //TODO: Make car image background transparent
-  var myLatLng = {lat: 1.308, lng: 103.829};
-  var image = 'images/car-placemark.png';
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!',
-    icon: image
   });
 }
